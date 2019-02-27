@@ -400,6 +400,9 @@ class FFmpeg:
             self.filename = self.tmp_file_prefix + filename + ".flac"
         else:
             self.filename = filename + ".flac"
+            
+        # Fix for titles containing '/'
+        self.filename = self.filename.replace("/", "_")
 
         # build metadata param
         metadata_params = ''
